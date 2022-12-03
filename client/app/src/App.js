@@ -4,17 +4,28 @@ import Axios from 'axios'
 
 function App() {
 
-  const [Recipe_ID,setID]  = useState('')
   const [Rating,setRating] = useState('')
+  const [Title,setTitle] = useState('')
+  const [Description,setDescription] = useState('')
+  
+  const [Total_Time,setTime] = useState('')
+  const [Publish_Date,setDate] = useState('')
+  const [Cuisine,setCusine] = useState('')
+
+  const[Author_Name,setAuthor] = useState('')
 
  
 
   const submitRecipe = () => {
     Axios.post('http://localhost:3001/api/insert',
     {
-      Recipe_ID: Recipe_ID,
-      Rating: Rating
-      
+      Rating: Rating,
+      Title: Title,
+      Description: Description,
+      Total_Time: Total_Time,
+      Publish_Date: Publish_Date,
+      Cuisine: Cuisine,
+      Author_Name: Author_Name
     }).then(() => {
       alert('sucessfuly insert');
     })
@@ -27,15 +38,42 @@ function App() {
     <div>
           <h1>Recipe Database</h1>
           <div className = "form">
+          
+         
 
-          <label> Recipe ID</label>
-          <input type = "text" name ="recipes" onChange = {(e)=> {
-            setID(e.target.value)
-          } }/>
+          <label>Title</label>
+          <input type = "text" name ="title" onChange = {(e)=> {
+            setTitle(e.target.value)
+          }}/>
+
+          <label>Description</label>
+          <input type = "text" name ="description" onChange = {(e)=> {
+            setDescription(e.target.value)
+          }}/>
 
           <label>Rating</label>
           <input type = "text" name = "Rating" onChange={(e) => {
             setRating(e.target.value)
+          }}/>
+
+          <label>Total Time</label>
+          <input type = "text" name = "total_time" onChange = {(e) => {
+            setTime(e.target.value)
+          }}/>
+
+          <label>Publish Date</label>
+          <input type = "text" name = "publish_date" onChange = {(e) => {
+            setDate(e.target.value)
+          }}/>
+
+          <label>Cuisine</label>
+          <input type = "text" name = "cuisine" onChange = {(e) => {
+            setCusine(e.target.value)
+          }}/>
+
+          <label>Author Name</label>
+          <input type = "text" name = "Author" onChange = {(e) => {
+            setAuthor(e.target.value)
           }}/>
 
           <button onClick = {submitRecipe}>Submit</button>
