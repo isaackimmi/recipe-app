@@ -11,7 +11,7 @@ const db = mysql.createPool({
     host: 'localhost',
     user: 'root',
     password: 'root1',
-    database:'cs157a_database'
+    database:'cs157a'
 })
 
 
