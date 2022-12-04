@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Axios from "axios";
 import logo from "./recipe-database.png";
@@ -19,6 +19,14 @@ function App() {
   const [Instruction, setInstruction] = useState("");
   const [Ingredient, setIngredient] = useState("");
 
+  const [RecipeList, setRecipeList] = useState([]);
+
+  useEffect(() => {
+    Axios.get("http://localhost:3001/api/get").then((response) => {
+      setRecipeList(response.data);
+    });
+  }, []);
+
   const submitRecipe = () => {
     Axios.post("http://localhost:3001/api/insert", {
       Rating: Rating,
@@ -28,8 +36,12 @@ function App() {
       Publish_Date: Publish_Date,
       Cuisine: Cuisine,
       Author_Name: Author_Name,
+      Preparation: Preparation,
+      Measurement: Measurement,
+      Instruction: Instruction,
+      Ingredient: Ingredient,
     }).then(() => {
-      alert("sucessfuly insert");
+      setRecipeList([...RecipeList]);
     });
   };
 
@@ -152,6 +164,17 @@ function App() {
       >
         Submit
       </button>
+
+      {RecipeList.map((val) => {
+        return (
+          <div>
+            <p>Title: {val.Title}</p>
+            <button>Delete</button>
+            <input type="text" />
+            <button>Update</button>
+          </div>
+        );
+      })}
     </div>
   );
 }

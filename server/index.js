@@ -28,30 +28,38 @@ app.post('/api/insert', (req,res) => {
     const Publish_Date = req.body.Publish_Date
     const Cuisine = req.body.Cuisine
     const Author_Name = req.body.Author_Name
+    const Preparation = req.body.Preparation
+    const Measurement = req.body.Measurement
+    const Instruction = req.body.Instruction
+    const Ingredient = req.body.Ingredient
 
     const sqlInsert1 = "INSERT INTO author (Author_Name) VALUES(?)";
     db.query(sqlInsert1,[Author_Name],(err,result) => {
     console.log(result)
         
     const sqlInsert = 
-    "INSERT INTO recipes (Title,Description,Rating,Total_Time,Publish_Date,Cuisine) VALUES(?,?,?,?,?,?)";
-    db.query(sqlInsert,[Title,Description,Rating,Total_Time,Publish_Date,Cuisine], (err,result)=>{
-    console.log(err);
-    
+        "INSERT INTO recipes (Title,Description,Rating,Total_Time,Publish_Date,Cuisine) VALUES(?,?,?,?,?,?)";
+        db.query(sqlInsert,[Title,Description,Rating,Total_Time,Publish_Date,Cuisine], (err,result)=>{
+        console.log(err);
+
     const sqlInsert2 =
-        "INSERT INTO preparations (Preparation,Measurement,Instructions,Ingredients)  VALUES(?,?,?,?)";
+        "INSERT INTO preparations (Preparation,Measurement,Instruction,Ingredients)  VALUES(?,?,?,?)";
 
-        db.query(sqlInsert2)
-        
-    });
-      
-    });
-
-    
+        db.query(sqlInsert2,[Preparation,Measurement,Instruction,Ingredient], (err,result) => {
+            console.log(result)
+            });
+        });
+    }); 
 })
 
-app.get('/api/insert',(req,res) => {
-    res.send('hello')
+app.get('/api/get',(req,res) => {
+
+    const sqlSelect =
+    "SELECT * FROM preparations, author, recipes";
+   db.query(sqlSelect, (err,result) => {
+       res.send(result)
+   });
+   
 })
 
 
