@@ -70,7 +70,7 @@ app.put("/api/update", (req, res) => {
   const Publish_Date = req.body.Publish_Date;
   const sqlUpdate = "Update Recipes SET Title = ? WHERE Publish_DATE = ?";
 
-  db.query(sqlUpdate,[title,Publish_Date], (err, result) => {
+  db.query(sqlUpdate, [title, Publish_Date], (err, result) => {
     if (err) console.log(err);
   });
 });
