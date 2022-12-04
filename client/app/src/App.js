@@ -14,6 +14,12 @@ function App() {
 
   const[Author_Name,setAuthor] = useState('')
 
+
+  const [Preparation,setPreparation] = useState('')
+  const [Measurement,setMeasurement] = useState('')
+  const [Instruction,setInstruction] = useState('')
+  const [Ingredient, setIngredient] = useState('')
+
  
 
   const submitRecipe = () => {
@@ -74,6 +80,26 @@ function App() {
           <label>Author Name</label>
           <input type = "text" name = "Author" onChange = {(e) => {
             setAuthor(e.target.value)
+          }}/>
+
+
+          <label>Preparation</label>
+          <input type = "text" name = "preparation" onChange = {(e) => {
+            setPreparation(e.target.value)
+          }}/>
+
+          <label>Measurement</label>
+          <input type = "text" name = "measurement" onChange = {(e) => {
+            setMeasurement(e.target.value)
+          }}/>
+
+          <label>Instruction</label>
+          <input type = "text" name = "instruction" onChange = {(e) => {
+            setInstruction(e.target.value)
+          }}/>
+          <label>Ingredient</label>
+          <input type = "text" name = "Ingredient" onChange = {(e) => {
+            setIngredient(e.target.value)
           }}/>
 
           <button onClick = {submitRecipe}>Submit</button>

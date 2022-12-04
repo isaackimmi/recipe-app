@@ -21,26 +21,33 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true}))
 
 app.post('/api/insert', (req,res) => {
-
     const Title = req.body.Title
     const Description = req.body.Description
     const Rating = req.body.Rating
     const Total_Time = req.body.Total_Time
     const Publish_Date = req.body.Publish_Date
     const Cuisine = req.body.Cuisine
-    const Author_Name = req.bosy.Author_Name
-
-    const sqlInsert = 
-            "INSERT INTO recipes (Title,Description,Rating,Total_Time,Publish_Date,Cuisine) VALUES(?,?,?,?,?,?)";
-    db.query(sqlInsert,[Title,Description,Rating,Total_Time,Publish_Date,Cuisine], (err,result)=>{
-        console.log(err);
-    
+    const Author_Name = req.body.Author_Name
 
     const sqlInsert1 = "INSERT INTO author (Author_Name) VALUES(?)";
     db.query(sqlInsert1,[Author_Name],(err,result) => {
-        console.log(err)
-    })
-    })
+    console.log(result)
+        
+    const sqlInsert = 
+    "INSERT INTO recipes (Title,Description,Rating,Total_Time,Publish_Date,Cuisine) VALUES(?,?,?,?,?,?)";
+    db.query(sqlInsert,[Title,Description,Rating,Total_Time,Publish_Date,Cuisine], (err,result)=>{
+    console.log(err);
+    
+    const sqlInsert2 =
+        "INSERT INTO preparations (Preparation,Measurement,Instructions,Ingredients)  VALUES(?,?,?,?)";
+
+        db.query(sqlInsert2)
+        
+    });
+      
+    });
+
+    
 })
 
 app.get('/api/insert',(req,res) => {
