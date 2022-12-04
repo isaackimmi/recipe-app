@@ -47,6 +47,7 @@ function App() {
 
   const deleteRecipe = (title) => {
     Axios.delete(`http://localhost:3001/api/delete/${title}`);
+    window.location.reload();
   };
 
   return (
@@ -163,22 +164,33 @@ function App() {
 
       <button
         type="button"
-        class="btn btn-primary btn-lg"
+        className="btn btn-success btn-lg"
         onClick={submitRecipe}
       >
         Submit
       </button>
 
-      {RecipeList.map((val) => {
-        return (
-          <div>
-            <p>Title: {val.Title}</p>
-            <button>Delete</button>
-            <input type="text" />
-            <button>Update</button>
-          </div>
-        );
-      })}
+      <div className="recipe-list">
+        {RecipeList.length > 0 &&
+          RecipeList.map((val) => {
+            return (
+              <div className="recipe-card">
+                <p>Title: {val.Title}</p>
+                <div className="btn-container">
+                  <button
+                    className="btn btn-danger btn-sm mr"
+                    onClick={() => {
+                      deleteRecipe(val.Title);
+                    }}
+                  >
+                    Delete
+                  </button>
+                  <button className="btn btn-secondary btn-sm">Update</button>
+                </div>
+              </div>
+            );
+          })}
+      </div>
     </div>
   );
 }

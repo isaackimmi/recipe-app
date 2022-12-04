@@ -87,13 +87,55 @@ body {
   color: #080708;
 }
 
-.btn-primary,
-.btn-primary:hover,
-.btn-primary:active,
-.btn-primary:visited,
-.btn-primary:focus {
-  background-color: #80ffe8;
-  border-color: #80ffe8;
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:active,
+.btn-secondary:visited,
+.btn-secondary:focus {
+  background-color: #efcb68;
+  border-color: #efcb68;
   color: black;
   font-weight: 500;
+}
+
+.recipe-list {
+  width: 85vw;
+  margin-top: 30px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 50px;
+  overflow-x: scroll;
+}
+
+.recipe-card {
+  border: 4px solid black;
+  padding: 25px;
+  border-radius: 20px;
+}
+
+.recipe-card p {
+  font-weight: 500;
+  font-size: 22px;
+}
+
+.btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.recipe-list::-webkit-scrollbar {
+  width: 6px; /* width of the entire scrollbar */
+}
+
+.recipe-list::-webkit-scrollbar-track {
+  background: none;
+}
+
+.recipe-list::-webkit-scrollbar-thumb {
+  background-color: transparent; /* color of the scroll thumb */
+  border-radius: 40px; /* roundness of the scroll thumb */
+  border: 3px solid #97d2fb; /* creates padding around scroll thumb */
 }
