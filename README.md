@@ -1,5 +1,3 @@
-# recipe-app
-
 ## General Setup Instructions
 Clone the repo to have access to it locally. 
 
