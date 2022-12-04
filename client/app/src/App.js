@@ -21,6 +21,8 @@ function App() {
 
   const [RecipeList, setRecipeList] = useState([]);
 
+  const [newTitle, setNewTitle] = useState("");
+
   useEffect(() => {
     Axios.get("http://localhost:3001/api/get").then((response) => {
       setRecipeList(response.data);
@@ -43,11 +45,21 @@ function App() {
     }).then(() => {
       setRecipeList([...RecipeList]);
     });
+    window.location.reload(true);
   };
 
   const deleteRecipe = (title) => {
     Axios.delete(`http://localhost:3001/api/delete/${title}`);
-    window.location.reload();
+    window.location.reload(true);
+  };
+
+  const updateRecipe = (Publish_Date) => {
+    Axios.put("http://localhost:3001/api/update", {
+      Title: newTitle,
+      Publish_Date: Publish_Date,
+    });
+    setNewTitle(newTitle);
+    window.location.reload(true);
   };
 
   return (
@@ -185,7 +197,21 @@ function App() {
                   >
                     Delete
                   </button>
-                  <button className="btn btn-secondary btn-sm">Update</button>
+                  <input
+                    type="text"
+                    id="update"
+                    onChange={(e) => {
+                      setNewTitle(e.target.value);
+                    }}
+                  />
+                  <button
+                    className="btn btn-secondary btn-sm"
+                    onClick={() => {
+                      updateRecipe(val.Title);
+                    }}
+                  >
+                    Update
+                  </button>
                 </div>
               </div>
             );

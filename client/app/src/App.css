@@ -114,6 +114,19 @@ body {
   border-radius: 20px;
 }
 
+.recipe-card input {
+  border: 3px solid black;
+  border-radius: 30px;
+  padding: 4px 12px;
+  background-color: #e1eff6;
+}
+
+.recipe-card input:focus {
+  border-color: #97d2fb;
+  background-color: white;
+  outline: none;
+}
+
 .recipe-card p {
   font-weight: 500;
   font-size: 22px;
