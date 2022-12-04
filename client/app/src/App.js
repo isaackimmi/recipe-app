@@ -48,10 +48,12 @@ function App() {
     }).then(() => {
       setRecipeList([...RecipeList,])
     })
+    window.location.reload(true);
   }
   
   const deleteRecipe = (title) => {
     Axios.delete(`http://localhost:3001/api/delete/${title}`)
+    window.location.reload(true);
   }
 
 

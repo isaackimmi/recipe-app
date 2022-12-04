@@ -64,10 +64,22 @@ app.delete('/api/delete/:Title', (req,res) => {
 
 })
 
+app.put('/api/update', (req,res) => {
+
+    const title = req.params.Title
+    const sqlUpdate = 
+        "UPDATE SET recipes";
+    
+    db.query(sqlDelete,title,(err, result) => {
+        if(err) console.log(err)
+    })
+
+})
+
 app.get('/api/get',(req,res) => {
 
     const sqlSelect =
-    "SELECT * FROM preparations, author, recipes";
+    "SELECT * FROM recipes";
    db.query(sqlSelect, (err,result) => {
        res.send(result)
    });
