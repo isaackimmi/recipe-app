@@ -1,26 +1,99 @@
+body {
+  background-color: #e1eff6;
+}
+
 .App {
   text-align: center;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 25%;
+  gap: 6px;
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes floating {
+  0% {
+    transform: translate(0, 0px);
+  }
+  50% {
+    transform: translate(0, 10px);
+  }
+  100% {
+    transform: translate(0, -0px);
+  }
+}
+
+.header h1 {
+  margin: 0px;
+}
+
+.page {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 100px;
+  margin-bottom: 20px;
 }
 
 .form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  
-}
-.form input[name = description]{
-  width: 300px;
-  height: 50px;
-  margin: 10;
-  font-size: 20px;
+  gap: 8px;
 }
 
+.form input[name="description"] {
+  width: 300px;
+  height: 50px;
+  font-size: 20px;
+}
 
 .form input {
   width: 300px;
   height: 30px;
-  margin: 10;
+  padding: 20px 20px;
   font-size: 20px;
-
+  border-radius: 40px;
+  border: 6px solid #080708;
+  background-color: #e1eff6;
 }
 
+.form input:focus {
+  border-color: #97d2fb;
+  background-color: white;
+  outline: none;
+}
+
+.form label {
+  font-weight: 600;
+  color: #080708;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus {
+  background-color: #80ffe8;
+  border-color: #80ffe8;
+  color: black;
+  font-weight: 500;
+}
