@@ -8,7 +8,7 @@ const mysql = require("mysql");
 const db = mysql.createPool({
   host: "localhost",
   user: "root",
-  password: "password",
+  password: "root1",
   database: "cs157a",
 });
 
@@ -68,9 +68,9 @@ app.delete("/api/delete/:Title", (req, res) => {
 app.put("/api/update", (req, res) => {
   const title = req.body.Title;
   const Publish_Date = req.body.Publish_Date;
-  const sqlUpdate = "UPDATE recipes SET title = ? WHERE Publish_Date = ? ";
+  const sqlUpdate = "Update Recipes SET Title = ? WHERE Publish_DATE = ?";
 
-  db.query(sqlUpdate, [title, Publish_Date], (err, result) => {
+  db.query(sqlUpdate,[title,Publish_Date], (err, result) => {
     if (err) console.log(err);
   });
 });
