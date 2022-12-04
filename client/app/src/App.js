@@ -45,6 +45,10 @@ function App() {
     });
   };
 
+  const deleteRecipe = (title) => {
+    Axios.delete(`http://localhost:3001/api/delete/${title}`);
+  };
+
   return (
     <div className="page">
       <div className="header">

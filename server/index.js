@@ -52,6 +52,18 @@ app.post('/api/insert', (req,res) => {
     }); 
 })
 
+app.delete('/api/delete/:Title', (req,res) => {
+
+    const title = req.params.Title
+    const sqlDelete = 
+        "DELETE FROM recipes WHERE Title = (?)";
+    
+    db.query(sqlDelete,title,(err, result) => {
+        if(err) console.log(err)
+    })
+
+})
+
 app.get('/api/get',(req,res) => {
 
     const sqlSelect =
