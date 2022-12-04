@@ -67,10 +67,11 @@ app.delete('/api/delete/:Title', (req,res) => {
 app.put('/api/update', (req,res) => {
 
     const title = req.params.Title
+    const Publish_Date = req.body.Publish_Date
     const sqlUpdate = 
-        "UPDATE SET recipes";
+        "UPDATE recipes SET title = ? WHERE Publish_Date = ? ";
     
-    db.query(sqlDelete,title,(err, result) => {
+    db.query(sqlUpdate,[title,Publish_Date],(err, result) => {
         if(err) console.log(err)
     })
 
