@@ -17,7 +17,7 @@ Make sure to remember the `user` and `password` fields that are used for that da
 
 ## MySQL Database Setup
 
-You will see that we have two additional folders at the root of our project titled `cs157_prod` and `cs157a_testing`. These folders contain the schema for our prod and testing databases, respectively. In order to import them into MySQL Workbench follow this tutorial: https://www.youtube.com/watch?v=q0EBUXTQQRY. 
+You will see that we have two additional sql files at the root of our project titled `cs157_prod.sql` and `cs157a_testing.sql`. These files contain the schema for our prod and testing databases, respectively. In order to import them into MySQL Workbench follow this tutorial: https://www.youtube.com/watch?v=q0EBUXTQQRY. 
 
 ## Frontend Setup
 Go into the `/app` directory by running `cd client/app` from the root directory of the project. Once you are inside the `/app` directory, run `npm install` to make sure you have all the necessary packages. At this point, you can run `npm start` from the `/app` directory and you should see the frontend running in your browser. 
