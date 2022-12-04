@@ -49,6 +49,10 @@ function App() {
       setRecipeList([...RecipeList,])
     })
   }
+  
+  const deleteRecipe = (title) => {
+    Axios.delete(`http://localhost:3001/api/delete/${title}`)
+  }
 
 
  
@@ -121,8 +125,7 @@ function App() {
             return(
               <div>
                 <p>Title: {val.Title}</p>
-                <button>Delete</button>
-                <input type ="text"/>
+                <button onClick = {() => {deleteRecipe(val.Title)}}>Delete</button>
                 <button>Update</button>
 
               </div>
